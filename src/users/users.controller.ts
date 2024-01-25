@@ -1,3 +1,4 @@
+import { UsersService } from './users.service';
 import {
   Body,
   Controller,
@@ -9,22 +10,21 @@ import {
   Patch,
   Post,
   Query,
-  Res,
 } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
+  constructor(private readonly UsersService: UsersService) {}
+
   @Get()
-  findAll(@Query() query) {
-    return {
-      message: 'This action returns the all users',
-      queryParams: query,
-    };
+  findAll() {
+    const records = this.UsersService.findAll();
+    return records;
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): string {
-    return `This action returns the user: ${id}`;
+  findOne(@Param('id') id: string) {
+    return this.UsersService.findOne(id);
   }
 
   @Post()
