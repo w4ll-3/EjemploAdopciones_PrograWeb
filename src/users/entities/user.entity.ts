@@ -21,3 +21,5 @@ class UserEntity {
     bs: string;
   };
 }
+
+export default UserEntity;

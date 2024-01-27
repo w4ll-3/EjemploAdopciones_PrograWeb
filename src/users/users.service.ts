@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import UserEntity from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
-  private records = [
+  private records: UserEntity[] = [
     {
       id: 1,
       name: 'Leanne Graham',
