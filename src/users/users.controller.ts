@@ -1,3 +1,4 @@
+import CreateUserDto from './dtos/create-user.dto';
 import { UsersService } from './users.service';
 import {
   Body,
@@ -9,7 +10,6 @@ import {
   Param,
   Patch,
   Post,
-  Query,
 } from '@nestjs/common';
 
 @Controller('users')
@@ -28,8 +28,8 @@ export class UsersController {
   }
 
   @Post()
-  create(@Body() body) {
-    return body;
+  create(@Body() body: CreateUserDto) {
+    return this.UsersService.create(body);
   }
 
   @Patch(':id')
