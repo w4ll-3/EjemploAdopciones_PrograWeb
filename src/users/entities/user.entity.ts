@@ -1,25 +1,18 @@
-class UserEntity {
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity('users')
+class User {
+  @PrimaryGeneratedColumn()
   id: number;
+
+  @Column({ type: 'varchar', length: 255 })
   name: string;
-  username: string;
+
+  @Column({ type: 'varchar' })
   email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
+
+  @Column({ type: 'varchar', nullable: true })
+  address?: string;
 }
 
-export default UserEntity;
+export default User;
