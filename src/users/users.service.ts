@@ -241,8 +241,8 @@ export class UsersService {
     return this.records;
   }
 
-  findOne(id: string) {
-    return this.records.find((record) => record.id === Number(id));
+  findOne(id: number) {
+    return this.records.find((record) => record.id == id);
   }
 
   create(new_user): CreateUserDto {
