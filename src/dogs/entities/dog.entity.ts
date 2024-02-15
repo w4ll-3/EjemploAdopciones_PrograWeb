@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import User from 'src/users/entities/user.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum Genero {
   masculino = 1,
@@ -24,6 +25,9 @@ class Dog {
 
   @Column({ type: 'enum', enum: Genero })
   genero: Genero;
+
+  @ManyToOne(() => User, (user) => user.dogs)
+  user: User;
 }
 
 export default Dog;

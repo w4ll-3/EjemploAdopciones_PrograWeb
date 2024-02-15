@@ -15,7 +15,7 @@ import { DogsModule } from './dogs/dogs.module';
       password: 'url.2024',
       database: 'url2024',
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
     }),
     UsersModule,
     DogsModule,

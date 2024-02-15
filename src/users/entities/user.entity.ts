@@ -1,4 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import Role from './role.entity';
+import Dog from 'src/dogs/entities/dog.entity';
 
 @Entity('users')
 class User {
@@ -13,6 +21,12 @@ class User {
 
   @Column({ type: 'varchar', nullable: true })
   address?: string;
+
+  @ManyToOne(() => Role, (role) => role.users)
+  role: Role;
+
+  @OneToMany(() => Dog, (dog) => dog.user)
+  dogs: Dog[];
 }
 
 export default User;
