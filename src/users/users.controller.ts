@@ -14,35 +14,32 @@ import {
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly UsersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}
 
   @Get()
   findAll() {
-    const records = this.UsersService.findAll();
+    const records = this.usersService.findAll();
     return records;
   }
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return this.UsersService.findOne(id);
+    return this.usersService.findOne(id);
   }
 
   @Post()
   create(@Body() body: CreateUserDto) {
-    return this.UsersService.create(body);
+    return this.usersService.create(body);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body) {
-    return {
-      id,
-      body,
-    };
+  update(@Param('id') id: number, @Body() body) {
+    return this.usersService.update(id, body);
   }
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  destroy(@Param('id') id: string) {
-    return `this action destroys the user: ${id}`;
+  destroy(@Param('id') id: number) {
+    return this.usersService.remove(id);
   }
 }
