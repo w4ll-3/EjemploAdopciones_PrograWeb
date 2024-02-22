@@ -16,6 +16,9 @@ class User {
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
+  @Column({ type: 'varchar', length: 255, default: '' })
+  lastname: string;
+
   @Column({ type: 'varchar' })
   email: string;
 

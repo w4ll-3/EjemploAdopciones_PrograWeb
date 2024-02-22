@@ -36,3 +36,6 @@ lerna-debug.log*
 
 # OTHERS
 *.txt
+
+#Env files
+.env.local

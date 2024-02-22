@@ -8,6 +8,6 @@ export const dataSource = new DataSource({
   password: 'url.2024',
   database: 'url2024',
   synchronize: false,
-  entities: ['src/**/*.entity.ts'],
-  migrations: ['./src/migration/*.ts'],
+  entities: ['src/**/*.entity{.ts, .js}'],
+  migrations: ['./src/migrations/*.ts'],
 });
