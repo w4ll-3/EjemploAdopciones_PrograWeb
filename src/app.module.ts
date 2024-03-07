@@ -5,6 +5,7 @@ import { DogsModule } from './dogs/dogs.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 import * as Joi from '@hapi/joi';
 
 @Module({
@@ -32,6 +33,7 @@ import * as Joi from '@hapi/joi';
     }),
     UsersModule,
     DogsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

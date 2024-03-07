@@ -19,4 +19,7 @@ export default class CreateUserDto {
   @IsString()
   @IsOptional()
   address: string;
+
+  @IsString()
+  password: string;
 }
