@@ -19,6 +19,7 @@ import * as Joi from '@hapi/joi';
         DB_USER: Joi.string().required(),
         DB_PASSWORD: Joi.string().required(),
         MESSAGE: Joi.string().required(),
+        JWT_SECRET: Joi.string().required(),
       }),
     }),
     TypeOrmModule.forRoot({
