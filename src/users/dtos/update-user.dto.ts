@@ -8,6 +8,10 @@ class UpdateUserDto extends PartialType(CreateUserDto) {
   name: string;
 
   @IsOptional()
+  @IsString()
+  lastname: string;
+
+  @IsOptional()
   @IsEmail()
   email: string;
 

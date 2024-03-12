@@ -13,6 +13,11 @@ export default class CreateUserDto {
   name: string;
 
   @IsString()
+  @MinLength(1)
+  @MaxLength(255)
+  lastname: string;
+
+  @IsString()
   @IsEmail()
   email: string;
 
