@@ -11,10 +11,9 @@ import {
   Param,
   Patch,
   Post,
-  UseGuards,
 } from '@nestjs/common';
 import User from './entities/user.entity';
-import { JwtGuard } from 'src/auth/jwt.guard';
+import { IsPublic } from 'src/common/is-public.decorator';
 
 @ApiTags('users')
 @Controller('users')
@@ -22,6 +21,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
+  @IsPublic()
   findAll() {
     const records = this.usersService.findAll();
     return records;
@@ -42,7 +42,6 @@ export class UsersController {
   }
 
   @Patch(':id')
-  @UseGuards(JwtGuard)
   update(@Param('id') id: number, @Body() body) {
     return this.usersService.update(id, body);
   }
